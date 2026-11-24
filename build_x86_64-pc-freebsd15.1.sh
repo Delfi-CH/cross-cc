@@ -34,7 +34,7 @@ mkdir -p "$PREFIX/bin" "$PREFIX/lib"
 
 
 # building binutils
-if [ -e "$PREFIX/bin/x86_64-pc-freebsd15.1-ar" ]; then
+if [ -e "$PREFIX/bin/$TARGET-ar" ]; then
     echo "Binutils already exist!"
 else
 
@@ -45,6 +45,7 @@ cd binutils-2.47/build
 ../configure \
     --target="$TARGET" \
     --prefix="$PREFIX" \
+    --host="$HOST" \
     --with-sysroot="$SYSROOT" \
     --disable-nls \
     --disable-werror
@@ -66,7 +67,7 @@ tar zxvf gmp-6.3.0.tar.gz
 mkdir -p gmp-6.3.0/build
 cd gmp-6.3.0/build
 sed -i '/long long t1;/,+1s/()/(...)/' ../configure
-../configure --prefix=$PREFIX --enable-shared --enable-static --enable-fft --disable-cxx --host=$TARGET
+../configure --prefix=$PREFIX --enable-shared --enable-static --enable-fft --disable-cxx --host=$HOST
 make -j$(nproc)
 make check
 make install
@@ -84,7 +85,7 @@ wget https://ftp.gnu.org/gnu/mpfr/mpfr-4.2.2.tar.gz
 tar zxvf mpfr-4.2.2.tar.gz
 mkdir -p mpfr-4.2.2/build
 cd mpfr-4.2.2/build
-../configure --prefix=$PREFIX  --with-gnu-ld --with-gmp=$PREFIX --enable-static --enable-shared --host=$TARGET
+../configure --prefix=$PREFIX  --with-gnu-ld --with-gmp=$PREFIX --enable-static --enable-shared --host=$HOST
 make -j$(nproc)
 make check
 make install
@@ -104,7 +105,7 @@ wget https://ftp.gnu.org/gnu/mpc/mpc-1.4.1.tar.xz
 tar xvf mpc-1.4.1.tar.xz
 mkdir -p mpc-1.4.1/build
 cd mpc-1.4.1/build
-../configure --prefix=$PREFIX --with-gnu-ld --with-gmp=$PREFIX --with-mpfr=$PREFIX --enable-static --enable-shared --host=$TARGET
+../configure --prefix=$PREFIX --with-gnu-ld --with-gmp=$PREFIX --with-mpfr=$PREFIX --enable-static --enable-shared --host=$HOST
 make -j$(nproc)
 make check
 make install
@@ -114,7 +115,7 @@ rm -rf mpc-1.4.1*
 fi
 
 # building gcc
-if [ -e "$PREFIX/bin/x86_64-pc-freebsd15.1-gcc" ]; then
+if [ -e "$PREFIX/bin/$TARGET-gcc" ]; then
     echo "GCC already exists!"
 else
 
