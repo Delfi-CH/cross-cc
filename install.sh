@@ -4,7 +4,7 @@
 set -euo pipefail
 
 # constants
-TARGET_LIST=("x86_64-pc-freebsd15.1" "aarch64-unknown-freebsd15.1" "x86_64-unknown-netbsd" "i686-unknown-netbsd")
+TARGET_LIST=("x86_64-pc-freebsd15.1" "aarch64-unknown-freebsd15.1" "x86_64-unknown-netbsd" "i686-unknown-netbsdelf")
 
 # get cli args
 OPTIONS=$(getopt -o hlt:d:j:sv -l help,list,target:,directory:,jobs:,silent,verbose -- "$@")

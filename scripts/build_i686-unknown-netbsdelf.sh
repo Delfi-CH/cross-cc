@@ -3,7 +3,7 @@
 # general setup stuff
 set -euo pipefail
 
-source "$BASEDIR/scripts/vars_i686-unknown-netbsd.sh"
+source "$BASEDIR/scripts/vars_i686-unknown-netbsdelf.sh"
 
 cd "$BASEDIR"
 
