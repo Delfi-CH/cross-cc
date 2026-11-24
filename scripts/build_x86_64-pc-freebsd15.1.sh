@@ -3,7 +3,9 @@
 # general setup stuff
 set -euo pipefail
 
-source vars_x86_64-pc-freebsd15.1.sh
+source "$BASEDIR/scripts/vars_x86_64-pc-freebsd15.1.sh"
+
+cd "$BASEDIR"
 
 mkdir -p "$PREFIX"
 mkdir -p "$SYSROOT"

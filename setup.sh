@@ -5,6 +5,7 @@ set -euo pipefail
 
 READ_TARGET=""
 TARGET_LIST=("x86_64-pc-freebsd15.1" "aarch64-unknown-freebsd15.1")
+export BASEDIR="$HOME/opt/cross-cc"
 
 if [ "$#" -gt 0 ]; then
     if [ "$1" == "--list-targets" ] || [ "$1" == "-l" ]; then
@@ -43,4 +44,4 @@ if [ "$FAIL" -eq 0 ]; then
     exit 1
 fi
 
-"./build_$READ_TARGET.sh"
+"$BASEDIR/scripts/build_$READ_TARGET.sh"
