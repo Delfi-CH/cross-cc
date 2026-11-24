@@ -51,7 +51,7 @@ cd binutils-2.47/build
     --with-sysroot="$SYSROOT" \
     --disable-nls \
     --disable-werror
-make -j$(nproc)
+make -j$JOBS
 make check
 make install
 cd $PREFIX
@@ -70,7 +70,7 @@ mkdir -p gmp-6.3.0/build
 cd gmp-6.3.0/build
 sed -i '/long long t1;/,+1s/()/(...)/' ../configure
 ../configure --prefix=$PREFIX --enable-shared --enable-static --enable-fft --disable-cxx --host=$HOST
-make -j$(nproc)
+make -j$JOBS
 make check
 make install
 cd $PREFIX
@@ -88,7 +88,7 @@ tar zxvf mpfr-4.2.2.tar.gz
 mkdir -p mpfr-4.2.2/build
 cd mpfr-4.2.2/build
 ../configure --prefix=$PREFIX  --with-gnu-ld --with-gmp=$PREFIX --enable-static --enable-shared --host=$HOST
-make -j$(nproc)
+make -j$JOBS
 make check
 make install
 cd $PREFIX
@@ -108,7 +108,7 @@ tar xvf mpc-1.4.1.tar.xz
 mkdir -p mpc-1.4.1/build
 cd mpc-1.4.1/build
 ../configure --prefix=$PREFIX --with-gnu-ld --with-gmp=$PREFIX --with-mpfr=$PREFIX --enable-static --enable-shared --host=$HOST
-make -j$(nproc)
+make -j$JOBS
 make check
 make install
 cd $PREFIX
@@ -222,9 +222,9 @@ cd build
     --with-gmp="$PREFIX" \
     --with-mpfr="$PREFIX" \
     --with-mpc="$PREFIX"
-LD_LIBRARY_PATH=$PREFIX/lib make -j"$(nproc)" all-gcc
+LD_LIBRARY_PATH=$PREFIX/lib make -j"$JOBS" all-gcc
 make install-gcc
-LD_LIBRARY_PATH=$PREFIX/lib make -j"$(nproc)" all-target-libgcc
+LD_LIBRARY_PATH=$PREFIX/lib make -j"$JOBS" all-target-libgcc
 make install-target-libgcc
 
 cd "$PREFIX"

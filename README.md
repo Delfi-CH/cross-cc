@@ -2,6 +2,12 @@
 
 Scripts for building various cross compilers
 
+## Usage
+
+```bash
+./install.sh -t <Target>
+```
+
 ## Supported Targets:
 - x86_64-pc-freebsd15.1
 - aarch64-unknown-freebsd15.1
@@ -13,18 +19,5 @@ Scripts for building various cross compilers
 - GNU autotools
 - GNU make
 - gcc
-
-## Usage
-
-```bash
-./setup.sh
-./setup.sh <target>
-
-# Prints help
-./setup.sh -h
-./setup.sh --help
-
-# List all targets
-./setup.sh -l 
-./setup.sh --list-targets
-```
+- python3
+- GNU getopt
