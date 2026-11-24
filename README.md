@@ -2,11 +2,14 @@
 
 Scripts for building various cross compilers
 
-## Usage
+## Basic Usage
 
 ```bash
 ./install.sh -t <Target>
+./uninstall.sh -t <Target>
 ```
+
+For more info run `./install.sh -h`
 
 ## Supported Targets:
 - x86_64-pc-freebsd15.1

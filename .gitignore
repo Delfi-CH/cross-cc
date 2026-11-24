@@ -5,6 +5,8 @@
 !.gitignore
 !README.md
 !install.sh
+!uninstall.sh
+!targets.sh
 !build*.sh
 !vars*.sh
 !hello.c
