@@ -15,11 +15,11 @@ if [ -e "$SYSROOT/usr" ]; then
     echo "Sysroot already exists!"
 else
 
-wget https://ftp.uni-erlangen.de/netbsd/NetBSD-11.0/i386/binary/sets/base.tgz
+wget https://ftp.uni-erlangen.de/netbsd/NetBSD-11.1/i386/binary/sets/base.tgz
 tar -xzf base.tgz -C "$SYSROOT"
 rm base.tgz
 
-wget https://ftp.uni-erlangen.de/netbsd/NetBSD-11.0/i386/binary/sets/comp.tgz 
+wget https://ftp.uni-erlangen.de/netbsd/NetBSD-11.1/i386/binary/sets/comp.tgz 
 tar -xzf comp.tgz  -C "$SYSROOT"
 rm comp.tgz
 
