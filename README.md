@@ -12,8 +12,13 @@ Scripts for building various cross compilers
 For more info run `./install.sh -h`
 
 ## Supported Targets:
+
+### FreeBSD:
 - x86_64-unknown-freebsd15.1
 - aarch64-unknown-freebsd15.1
+- powerpc64le-unknown-freebsd15.1
+
+### NetBSD
 - x86_64-unknown-netbsd
 - i686-unknown-netbsdelf
 
