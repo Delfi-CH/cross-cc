@@ -10,4 +10,5 @@
 !build*.sh
 !vars*.sh
 !hello.c
+!fetch-debian-package.sh
 !scripts

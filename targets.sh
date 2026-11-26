@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 export TARGET_LIST=(
+    # Linux (glibc, debian)
+    "x86_64-unknown-linux-gnu"
+
     # FreeBSD 15.1
     "x86_64-unknown-freebsd15.1"
     "aarch64-unknown-freebsd15.1"
