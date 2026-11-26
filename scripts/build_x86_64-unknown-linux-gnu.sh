@@ -23,6 +23,8 @@ else
     for DEB in "$DOWNLOAD_DIR"/*.deb; do
         dpkg-deb -X "$DEB" $SYSROOT
     done
+    ln -s "$SYSROOT/usr/lib" "$SYSROOT/lib"
+    ln -s "$SYSROOT/usr/lib64" "$SYSROOT/lib64"
 fi
 
 # compiler prefix setup stuff
@@ -140,6 +142,10 @@ cd gcc-16.2.0/build
     --disable-nls \
     --disable-bootstrap \
     --disable-libgomp \
+    --disable-multilib \
+    --disable-libatomic \
+    --enable-multiarch \
+    --with-multiarch-defaults=x86_64-linux-gnu \
     --with-gmp="$PREFIX" \
     --with-mpfr="$PREFIX" \
     --with-mpc="$PREFIX"
